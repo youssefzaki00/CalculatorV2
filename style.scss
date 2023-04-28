@@ -120,7 +120,7 @@ html {
     font-family: inherit;
     font-size: inherit;
 
-    &:hover:after {
+    &:hover:after, &.hover:after {
       background-color: var(--color-white-text);
     }
 
@@ -166,8 +166,8 @@ html {
     font-size: 2.4rem;
   }
 
-  [data-value="delete"], [data-value="reset"] {
-    &:hover:after {
+  [data-value="Backspace"], [data-value="c"] {
+    &:hover:after, &.hover:after {
       background-color: var(--color-key-blue-hover);
     }
 
@@ -184,8 +184,8 @@ html {
     }
   }
 
-  [data-value="equal"] {
-    &:hover:after {
+  [data-value="Enter"] {
+    &:hover:after, &.hover:after {
       background-color: var(--color-key-red-hover);
     }
 

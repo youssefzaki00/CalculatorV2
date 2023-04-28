@@ -32,15 +32,15 @@ const resetButtonHandler = () => {
   updateScreen(currentNumber);
 }
 
-const deleteButtonHandler = (value) => {
-  if(!currentNumber) return;
+const deleteButtonHandler = () => {
+  if (!currentNumber) return;
 
-  if (value === "0") return;
+  if (currentNumber === "0") return;
 
-  if (value.length === 1) {
+  if (currentNumber.length === 1) {
     currentNumber = "";
   } else {
-    currentNumber = value.substring(0, value.length - 1);
+    currentNumber = currentNumber.substring(0, currentNumber.length - 1);
   }
 
   updateScreen(currentNumber);
@@ -49,22 +49,22 @@ const deleteButtonHandler = (value) => {
 const executeOperation = () => {
   if (currentNumber && storedNumber && operation) {
     switch (operation) {
-      case "plus":
+      case "+":
         storedNumber = parseFloat(storedNumber) + parseFloat(currentNumber);
         currentNumber = "";
         updateScreen(storedNumber);
         break;
-      case "minus":
+      case "-":
         storedNumber = parseFloat(storedNumber) - parseFloat(currentNumber);
         currentNumber = "";
         updateScreen(storedNumber);
         break;
-      case "multiply":
+      case "*":
         storedNumber = parseFloat(storedNumber) * parseFloat(currentNumber);
         currentNumber = "";
         updateScreen(storedNumber);
         break;
-      case "divide":
+      case "/":
         storedNumber = parseFloat(storedNumber) / parseFloat(currentNumber);
         currentNumber = "";
         updateScreen(storedNumber);
@@ -90,12 +90,13 @@ keyElements.forEach(element => element.addEventListener("click", () => {
     numberButtonHandler(element.dataset.value)
   } else if (element.dataset.type === "operation") {
     switch (element.dataset.value) {
-      case "reset":
+      case "c":
         resetButtonHandler();
         break;
-      case "delete":
-        deleteButtonHandler(currentNumber);
-      case "equal":
+      case "Backspace":
+        deleteButtonHandler();
+        break;
+      case "Enter":
         executeOperation(resultElement);
         break;
       default:
@@ -105,3 +106,33 @@ keyElements.forEach(element => element.addEventListener("click", () => {
 }));
 
 //  Use keyboard to type
+const availableNumbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "."]
+const availableOperations = ["+", "-", "*", "/"]
+const availableKeys = [...availableNumbers, ...availableOperations, "Backspace", "Enter", "c"];
+
+window.addEventListener("keydown", (event) => {
+  // solution1(event.key);
+  solution2(event.key);
+})
+
+const solution1 = (key) => {
+  if (availableNumbers.includes(key)) {
+    numberButtonHandler(key);
+  } else if (availableOperations.includes(key)) {
+    operationButtonHandler(key);
+  } else if (key === "Backspace") {
+    deleteButtonHandler();
+  } else if (key === "Enter") {
+    executeOperation();
+  }
+};
+
+const solution2 = (key) => {
+  if (availableKeys.includes(key)) {
+    const elem = document.querySelector(`[data-value="${key}"]`);
+
+    elem.classList.add("hover");
+    elem.click();
+    setTimeout(() => elem.classList.remove("hover"), 100);
+  }
+}

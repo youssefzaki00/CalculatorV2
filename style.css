@@ -115,7 +115,7 @@ html {
   font-family: inherit;
   font-size: inherit;
 }
-.calc__key:hover:after {
+.calc__key:hover:after, .calc__key.hover:after {
   background-color: var(--color-white-text);
 }
 .calc__key:active {
@@ -152,28 +152,28 @@ html {
 .calc [data-type=number] {
   font-size: 2.4rem;
 }
-.calc [data-value=delete]:hover:after, .calc [data-value=reset]:hover:after {
+.calc [data-value=Backspace]:hover:after, .calc [data-value=Backspace].hover:after, .calc [data-value=c]:hover:after, .calc [data-value=c].hover:after {
   background-color: var(--color-key-blue-hover);
 }
-.calc [data-value=delete]:after, .calc [data-value=reset]:after {
+.calc [data-value=Backspace]:after, .calc [data-value=c]:after {
   background-color: var(--color-key-blue-background);
 }
-.calc [data-value=delete]:before, .calc [data-value=reset]:before {
+.calc [data-value=Backspace]:before, .calc [data-value=c]:before {
   background-color: var(--color-key-blue-shadow);
 }
-.calc [data-value=delete] span, .calc [data-value=reset] span {
+.calc [data-value=Backspace] span, .calc [data-value=c] span {
   color: var(--color-white-text);
 }
-.calc [data-value=equal]:hover:after {
+.calc [data-value=Enter]:hover:after, .calc [data-value=Enter].hover:after {
   background-color: var(--color-key-red-hover);
 }
-.calc [data-value=equal]:after {
+.calc [data-value=Enter]:after {
   background-color: var(--color-key-red-background);
 }
-.calc [data-value=equal]:before {
+.calc [data-value=Enter]:before {
   background-color: var(--color-key-red-shadow);
 }
-.calc [data-value=equal] span {
+.calc [data-value=Enter] span {
   color: var(--color-white-text);
 }
 
