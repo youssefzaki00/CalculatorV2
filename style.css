@@ -152,28 +152,28 @@ html {
 .calc [data-type=number] {
   font-size: 2.4rem;
 }
-.calc [data-operation=delete]:hover:after, .calc [data-operation=reset]:hover:after {
+.calc [data-value=delete]:hover:after, .calc [data-value=reset]:hover:after {
   background-color: var(--color-key-blue-hover);
 }
-.calc [data-operation=delete]:after, .calc [data-operation=reset]:after {
+.calc [data-value=delete]:after, .calc [data-value=reset]:after {
   background-color: var(--color-key-blue-background);
 }
-.calc [data-operation=delete]:before, .calc [data-operation=reset]:before {
+.calc [data-value=delete]:before, .calc [data-value=reset]:before {
   background-color: var(--color-key-blue-shadow);
 }
-.calc [data-operation=delete] span, .calc [data-operation=reset] span {
+.calc [data-value=delete] span, .calc [data-value=reset] span {
   color: var(--color-white-text);
 }
-.calc [data-operation=equal]:hover:after {
+.calc [data-value=equal]:hover:after {
   background-color: var(--color-key-red-hover);
 }
-.calc [data-operation=equal]:after {
+.calc [data-value=equal]:after {
   background-color: var(--color-key-red-background);
 }
-.calc [data-operation=equal]:before {
+.calc [data-value=equal]:before {
   background-color: var(--color-key-red-shadow);
 }
-.calc [data-operation=equal] span {
+.calc [data-value=equal] span {
   color: var(--color-white-text);
 }
 
